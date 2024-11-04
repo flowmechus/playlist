@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reindirizzamento a Spotify</title>
-    <meta property="al:android:url" content="spotify://user/316r3whj7o74t7tu2hhpyd3hooxu">
-    <meta property="al:android:package" content="com.spotify.music">
-    <meta property="al:android:app_name" content="Spotify">
-    <meta property="al:ios:url" content="spotify://user/316r3whj7o74t7tu2hhpyd3hooxu">
-    <meta property="al:ios:app_store_id" content="324684580">
-    <meta property="al:ios:app_name" content="Spotify">
+    <title>Spotify Redirect</title>
 </head>
 <body>
     <script>
-        window.onload = function() {
-            // Prova prima il deep link diretto
-            window.location.href = 'spotify://user/316r3whj7o74t7tu2hhpyd3hooxu';
+        (function() {
+            // Tenta di aprire direttamente con il protocollo personalizzato
+            window.location = 'spotify://user/316r3whj7o74t7tu2hhpyd3hooxu';
             
-            // Fallback dopo un breve ritardo
+            // Se non funziona immediatamente, prova con l'URL universale
             setTimeout(function() {
-                window.location.href = 'https://open.spotify.com/user/316r3whj7o74t7tu2hhpyd3hooxu';
-            }, 500);
-        }
+                window.location = 'https://open.spotify.com/user/316r3whj7o74t7tu2hhpyd3hooxu';
+            }, 100);
+        })();
     </script>
-    <p>Reindirizzamento a Spotify in corso...</p>
 </body>
 </html>
